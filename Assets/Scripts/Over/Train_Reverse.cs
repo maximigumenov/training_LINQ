@@ -6,12 +6,10 @@ using System.Linq;
 /// <summary>
 /// Можно развернуть любой список или массив
 /// </summary>
-public class Train_Reverse : IBase_LINQ
+public class Train_Reverse : BaseTrain, IBase_LINQ
 {
-    public Mockup_Human[] list = new Mockup_Human[15];
-    public Mockup_Human[] result;
 
-    public void FullWriting()
+    public override void FullWriting()
     {
         var _result = (from item in list
                        select item
@@ -19,46 +17,39 @@ public class Train_Reverse : IBase_LINQ
         result = _result.ToArray();
     }
 
-    public void ExtensionWriting()
+    public override void ExtensionWriting()
     {
         var _result = list.Reverse();
         result = _result.ToArray();
     }
 
-    
-
-    public void InitializationMockups()
+    public override void ShowBase()
     {
-        list = new Mockup_Human[15];
-
-        for (int i = 0; i < list.Length; i++)
-        {
-            list[i] = new Mockup_Human();
-            list[i].Initialization(i);
-        }
-    }
-
-    public void Show()
-    {
+        base.ShowBase();
+        Debug.Log("Базовое состояние");
         for (int i = 0; i < result.Length; i++)
         {
             Debug.Log(result[i].count);
         }
-
-
     }
 
-    public void CheckWays()
+    public override void ShowFull()
     {
-        InitializationMockups();
-        result = list;
-        Show();
-        InitializationMockups();
-        FullWriting();
-        Show();
-        InitializationMockups();
-        ExtensionWriting();
-        Show();
+        base.ShowFull();
+        Debug.Log("ShowFull");
+        for (int i = 0; i < result.Length; i++)
+        {
+            Debug.Log(result[i].count);
+        }
     }
 
+    public override void ShowExtension()
+    {
+        base.ShowExtension();
+        Debug.Log("ShowExtension");
+        for (int i = 0; i < result.Length; i++)
+        {
+            Debug.Log(result[i].count);
+        }
+    }
 }

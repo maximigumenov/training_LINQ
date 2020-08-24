@@ -24,9 +24,5 @@ public interface IBase_LINQ
     /// Проверить все пути
     /// </summary>
     void CheckWays();
-
-    /// <summary>
-    /// Вывести в дебаг один способ
-    /// </summary>
-    void Show();
+    
 }
