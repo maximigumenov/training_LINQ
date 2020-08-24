@@ -7,6 +7,7 @@ public class BaseTrain : IBase_LINQ
 
     public Mockup_Human[] list = new Mockup_Human[15];
     public Mockup_Human[] result;
+    public Mockup_Human oneObject;
     public bool resultBool;
 
     public virtual void InitializationMockups() {
